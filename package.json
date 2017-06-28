@@ -5,14 +5,14 @@
   "license": "MIT",
   "scripts": {
     "prestart": "yarn run build",
-    "start": "node dist",
+    "start": "node -r dotenv/config dist",
     "build": "babel src -s -D -d dist",
-    "dev": "nodemon -w src --exec \"babel-node src\""
+    "dev": "nodemon -w src --exec \"node -r dotenv/config -r babel-register src\""
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.5.2",
-    "dotenv": "^4.0.0",
+    "babel-register": "^6.24.1",
     "eslint": "^4.1.1",
     "eslint-config-prettier": "^2.2.0",
     "eslint-plugin-prettier": "^2.1.2",
@@ -22,11 +22,19 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "morgan": "^1.8.2"
   },
   "babel": {
-    "presets": ["env"]
+    "presets": [
+      [
+        "env",
+        {
+          "targets": { "node": true }
+        }
+      ]
+    ]
   },
   "eslintConfig": {
     "extends": ["prettier"],
