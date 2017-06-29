@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import cors from "cors";
+import healthcheck from "express-healthcheck";
 import { sumController } from "./controller";
 import { errorLogger, errorHandler } from "./controller/error_handling";
 
@@ -10,6 +11,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.options("*", cors());
 app.use(bodyParser.json());
+app.use("/health", healthcheck());
 
 app.post("/sum", sumController);
 
