@@ -21,6 +21,7 @@
     "prettier": "^1.5.2"
   },
   "dependencies": {
+    "ajv": "^5.2.0",
     "body-parser": "^1.17.2",
     "cors": "^2.8.3",
     "dotenv": "^4.0.0",
@@ -41,8 +42,12 @@
   },
   "eslintConfig": {
     "parser": "babel-eslint",
-    "extends": ["prettier"],
-    "plugins": ["prettier"],
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
     "parserOptions": {
       "ecmaVersion": 7
     },

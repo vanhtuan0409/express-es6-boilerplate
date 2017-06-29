@@ -4,6 +4,7 @@ export function errorLogger(err, req, res, next) {
 }
 
 export function errorHandler(err, req, res, next) {
-  res.status(500);
+  const httpStatus = err.status || 500;
+  res.status(httpStatus);
   res.json({ error: err.message });
 }
