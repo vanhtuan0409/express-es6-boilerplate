@@ -5,6 +5,10 @@ export default class ResponseError extends Error {
     this.message = message;
   }
 
+  static NotFound(message) {
+    return new ResponseError(message, 404);
+  }
+
   static BadRequest(message) {
     return new ResponseError(message, 400);
   }

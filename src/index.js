@@ -3,7 +3,7 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 import cors from "cors";
 import healthcheck from "express-healthcheck";
-import { sumController } from "./controller";
+import { sumController, notFoundController } from "./controller";
 import { errorLogger, errorHandler } from "./controller/error_handling";
 
 const app = express();
@@ -15,6 +15,7 @@ app.use("/health", healthcheck());
 
 app.post("/sum", sumController);
 
+app.use(notFoundController);
 app.use(errorLogger);
 app.use(errorHandler);
 

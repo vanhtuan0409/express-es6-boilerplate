@@ -22,3 +22,8 @@ export async function sumController(req, res, next) {
   const result = await asyncSum(x, y);
   res.json({ value: result });
 }
+
+export function notFoundController(req, res, next) {
+  const error = ResponseError.NotFound("Page not found");
+  next(error);
+}
