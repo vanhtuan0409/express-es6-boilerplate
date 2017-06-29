@@ -2,13 +2,10 @@ import { asyncSum } from "../api";
 import Ajv from "ajv";
 
 const sumRequestSchema = {
+  type: "object",
   properties: {
-    x: {
-      type: "number"
-    },
-    y: {
-      type: "number"
-    }
+    x: { type: "number" },
+    y: { type: "number" }
   },
   required: ["x", "y"]
 };
