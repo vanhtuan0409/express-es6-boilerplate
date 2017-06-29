@@ -10,10 +10,11 @@ app.use(morgan("dev"));
 app.use(cors());
 app.options("*", cors());
 app.use(bodyParser.json());
+
+app.post("/sum", sumController);
+
 app.use(errorLogger);
 app.use(errorHandler);
-
-app.get("/sum", sumController);
 
 const port = process.env.HTTP_PORT || 3000;
 app.listen(port, function() {

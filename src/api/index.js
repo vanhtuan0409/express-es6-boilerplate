@@ -1,7 +1,7 @@
-export function resolveAfter2s(x) {
+export function asyncSum(x, y) {
   return new Promise(resolve => {
     setTimeout(function() {
-      resolve(x);
+      resolve(x + y);
     }, 2000);
   });
 }
